@@ -1,0 +1,461 @@
+/* 카페 주문서 기본 색상과 글꼴 */
+:root {
+  font-family: '맑은 고딕', sans-serif;
+  color: #e8f2f2;
+  background: #10243a;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 36px 20px 48px;
+  background: #10243a;
+}
+
+/* 제목과 주문서의 폭을 맞춰 가운데 배치 */
+header,
+main {
+  width: 100%;
+  max-width: 520px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+header .logo {
+  line-height: 1.2;
+}
+
+header h1 {
+  margin: 10px 0 6px;
+  color: #38cbbb;
+  font-size: 30px;
+}
+
+header p {
+  margin: 0;
+  color: #b8cccf;
+}
+
+/* 주문서와 내역을 바꾸는 탭 메뉴 */
+.tab-list {
+  display: flex;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto 18px;
+  border-bottom: 1px solid #2c5063;
+}
+
+.tab-button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  background: transparent;
+  color: #b9a58f;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.tab-button.is-active {
+  border-bottom-color: #a96d43;
+  color: #d2a078;
+}
+
+.tab-button:focus-visible {
+  outline: 2px solid #38cbbb;
+  outline-offset: 2px;
+}
+
+.tab-count {
+  display: inline-flex;
+  min-width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #6b4226;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+main {
+  padding: 30px;
+  border: 1px solid #2c5063;
+  border-radius: 16px;
+  background: #17344b;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 24%);
+}
+
+/* 폼 입력 요소 */
+.form-group {
+  min-width: 0;
+  margin: 0 0 20px;
+}
+
+form > .form-group > label,
+.form-group > legend {
+  display: block;
+  margin-bottom: 8px;
+  color: #dbe8e8;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+form > .form-group > label::before,
+.form-group > legend::before {
+  margin-right: 6px;
+  content: '🌊';
+  font-size: 13px;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='number'],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 42px;
+  padding: 10px;
+  border: 1px solid #4b929b;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #e1f4f4 0%, #edf8f7 55%, #e6f0fb 100%);
+  color: #183249;
+  font: inherit;
+  box-shadow: inset 0 1px 3px rgb(20 78 98 / 10%);
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+textarea {
+  min-height: 104px;
+  resize: vertical;
+}
+
+input[type='text']:hover,
+input[type='tel']:hover,
+input[type='number']:hover,
+select:hover,
+textarea:hover {
+  border-color: #318e98;
+}
+
+input[type='text']:focus,
+input[type='tel']:focus,
+input[type='number']:focus,
+select:focus,
+textarea:focus {
+  border-color: #24b9ad;
+  background: linear-gradient(135deg, #f0ffff 0%, #e2faf7 100%);
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(50 198 181 / 25%), inset 0 1px 3px rgb(20 78 98 / 8%);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #66838e;
+}
+
+select option {
+  background: #eaf6f6;
+  color: #183249;
+}
+
+.empty-orders {
+  margin: 0;
+  padding: 42px 12px;
+  color: #b8cccf;
+  text-align: center;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 한 건씩 읽기 쉬운 베이지색 주문 카드 */
+.order-card {
+  padding: 14px 14px 13px 16px;
+  border-left: 4px solid #6b4226;
+  border-radius: 6px;
+  background: #f4eadb;
+  color: #3f3025;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 14%);
+}
+
+.order-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.order-card-title {
+  margin: 2px 0 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.order-card-details {
+  margin: 8px 0 6px;
+  overflow-wrap: anywhere;
+}
+
+.order-card-meta {
+  margin: 0;
+  color: #755f4d;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.order-cancel-button {
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border: 1px solid #9a765a;
+  border-radius: 6px;
+  background: transparent;
+  color: #6b4226;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.order-cancel-button:hover {
+  background: #6b4226;
+  color: #fff;
+}
+
+.orders-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 16px;
+  margin-top: 18px;
+  border-top: 1px solid #2c5063;
+}
+
+#orders-total {
+  margin: 0;
+  color: #49ddcc;
+  font-weight: 700;
+}
+
+.clear-orders-button {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  border: 1px solid #38cbbb;
+  border-radius: 8px;
+  background: transparent;
+  color: #70e2d5;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.clear-orders-button:hover {
+  background: rgb(34 185 168 / 10%);
+}
+
+/* 사이즈와 추가 옵션을 가로로 나열 */
+fieldset.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  padding: 0;
+  border: 0;
+}
+
+fieldset.form-group legend {
+  width: 100%;
+  padding: 0;
+}
+
+fieldset.form-group > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: #24b9a9;
+}
+
+fieldset.form-group label {
+  color: #d2e0e1;
+  font-size: 14px;
+}
+
+/* 예상 금액과 주문 버튼 */
+.price-area {
+  margin: 26px 0 20px;
+  text-align: center;
+}
+
+.price-area p {
+  margin: 0;
+  color: #49ddcc;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.button-group button {
+  min-height: 46px;
+  flex: 1;
+  padding: 11px 16px;
+  border: 1px solid #2bc2b1;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+#submit-btn {
+  background: #22b9a8;
+  color: #082b37;
+}
+
+#submit-btn:hover {
+  background: #43d2c0;
+}
+
+#reset-btn {
+  background: transparent;
+  color: #70e2d5;
+}
+
+#reset-btn:hover {
+  background: rgb(34 185 168 / 10%);
+}
+
+.button-group button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 16px rgb(0 0 0 / 22%);
+}
+
+.button-group button:active {
+  transform: translateY(-1px);
+}
+
+/* 주문 완료 안내 */
+#order-confirmation:not([hidden]) {
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 48px 16px 14px;
+  border: 1px solid #267f72;
+  border-radius: 8px;
+  background: #103e42;
+  color: #a8f0d9;
+}
+
+.whale-animation {
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  left: 0;
+  font-size: 34px;
+  line-height: 1;
+  pointer-events: none;
+  animation: whale-swim 2.2s ease-in-out both;
+  filter: drop-shadow(0 4px 6px rgb(0 0 0 / 25%));
+}
+
+@keyframes whale-swim {
+  0% {
+    opacity: 0;
+    transform: translate(-100%, 5px) scale(0.85);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  50% {
+    left: 50%;
+    transform: translate(-50%, -8px) scale(1);
+  }
+
+  88% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+    transform: translate(100%, 4px) scale(0.95);
+  }
+}
+
+/* hidden 속성이 있거나 hidden 클래스가 붙은 요소는 숨김 */
+[hidden],
+.hidden {
+  display: none !important;
+}
+
+/* 작은 화면에서 여백과 버튼을 조정 */
+@media (max-width: 480px) {
+  body {
+    padding: 24px 14px 32px;
+  }
+
+  main {
+    padding: 22px 18px;
+    border-radius: 12px;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  .tab-button {
+    flex: 1;
+    padding: 10px 6px;
+    font-size: 14px;
+  }
+
+  .button-group {
+    gap: 9px;
+  }
+
+  .orders-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whale-animation {
+    animation: none;
+    opacity: 0;
+  }
+}
